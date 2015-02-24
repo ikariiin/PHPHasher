@@ -18,13 +18,10 @@
         break;
       }
     }
-    private join($to_hash_string, $algo)
-    {
-      $rand_number = rand();
-      $salt = hash('md5', $rand_number);
-      $res_hash = $to_hash_string . $salt;
-      $res_hash = hash($algo, $res_hash);
-    }
+    $rand_number = rand();
+    $salt = hash('md5', $rand_number);
+    $res_hash = $to_hash_string . $salt;
+    $res_hash = hash($algo, $res_hash);
     protected getHash()
     {
       if(isset($res_hash))
