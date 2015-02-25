@@ -1,5 +1,5 @@
 <?php
-  class HashException extends Exception
+  class HashException
   {
     protected $err_code;
     protected $err_msg;
