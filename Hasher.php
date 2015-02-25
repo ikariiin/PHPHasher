@@ -14,33 +14,32 @@
       }
       else
       {
-        throw new Exception("The Hashing Algorithm Is Not Present In Library");
+        throw new HashException("The Hashing Algorithm Is Not Present In Library");
         break;
       }
     }
-    protected function execute($to_hash_string, $algo, $salt, $res_hash)
+    protected function execute()
     {
+      global $to_hash_string, $algo, $salt, $res_hash;
       try{
       $rand_number = rand();
       $salt = hash('md5', $rand_number);
       $res_hash = $to_hash_string . $salt;
       $res_hash = hash($algo, $res_hash);
-      protected getHash()
+      if(isset($res_hash))
       {
-        if(isset($res_hash))
-        {
-          return $res_hash;
-        }
-        else
-        {
-          throw new Exception("It seems that there is a problem!");
-          break;
-        }
+        return $res_hash;
+      }
+      else
+      {
+        throw new HashException("It seems that there is a internal problem!");
+        break;
       }
       }
       catch(HashException $ex)
       {
-        public function 
+        echo $ex->getErrMsg();
+        break;
       }
     }
   }
