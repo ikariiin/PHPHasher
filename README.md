@@ -7,15 +7,9 @@ Then we have to call the `getHash()`function to get the salted hash of your init
 
 Initialize and get the hash with the salt using
   ```
-  try{
     $init_string = "Just A Initializing String";
     $algo = "sha256";
     $hasher = new PHPHasher/Hasher($init_string, $algo);
     $result = $hasher->getHash();
     echo $result;
-  }
-  catch(Exception $ex)
-  {
-    //Exception Has Occured In The Process
-  }
   ```
