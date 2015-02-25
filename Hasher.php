@@ -18,20 +18,29 @@
         break;
       }
     }
-    $rand_number = rand();
-    $salt = hash('md5', $rand_number);
-    $res_hash = $to_hash_string . $salt;
-    $res_hash = hash($algo, $res_hash);
-    protected getHash()
+    protected function execute($to_hash_string, $algo, $salt, $res_hash)
     {
-      if(isset($res_hash))
+      try{
+      $rand_number = rand();
+      $salt = hash('md5', $rand_number);
+      $res_hash = $to_hash_string . $salt;
+      $res_hash = hash($algo, $res_hash);
+      protected getHash()
       {
-        return $res_hash;
+        if(isset($res_hash))
+        {
+          return $res_hash;
+        }
+        else
+        {
+          throw new Exception("It seems that there is a problem!");
+          break;
+        }
       }
-      else
+      }
+      catch(HashException $ex)
       {
-        throw new Exception("It seems that there is a problem!");
-        break;
+        public function 
       }
     }
   }
