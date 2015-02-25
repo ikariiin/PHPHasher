@@ -1,4 +1,5 @@
 <?php
+  include ('HashException.php');
   class PHPHasher
   {
     private $to_hash_string;
