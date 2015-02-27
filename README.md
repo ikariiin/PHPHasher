@@ -37,7 +37,9 @@ This is a basic hasher class which return you a salted hash of your specified al
 ```
   $debug = $hasher->debug();
   echo $debug;
-  // If you find always something like 'Oppsie! The Hashing You Provided Does Not Exist!!!' type of message, this is because the hashing algorithm you specified when instanciating the class is not present in php
+  // If you find always something like 'Oppsie! The Hashing You 
+  //Provided Does Not Exist!!!' type of message, this is because the hashing algorithm 
+  //you specified when instanciating the class is not present in php
 ```
 
 ```
