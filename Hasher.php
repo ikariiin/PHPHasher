@@ -1,45 +1,52 @@
 <?php
-class Hasher
-{
-  private $present;
-  private $res_hash;
-  private $init_str;
-  private $algo;
-  private $err_msg;
-  private $msg;
-  private $salt;
-
-  public function __construct($init_str, $algo)
-  {
-    $this->init_str = $init_str;
-    if(in_array($algo, hash_algos()))
+    class PHPHasher
     {
-      $this->algo = $algo;
-      $this->salt = rand();
-      $this->salt = hash("md5", $this->salt);
-      $joined = $this->init_str . $this->salt;
-      $res_hash = hash($this->algo, $joined);
-      $this->res_hash = $res_hash;
+        private $algo;
+        private $init_str;
+        private $result;
+        private $salt;
+        private $errors = array();
+        
+        public function initialize($init_str, $algo)
+        {
+            $this->init_str = $init_str;
+            if(in_array($algo, hash_algos()))
+            {
+               $this->algo = $algo;
+            }
+            else
+            {
+                $this->errors['in_arr'] = false;
+            }
+        }
+        public function errors()
+        {
+            if($this->errors['in_arr'] == false)
+            {
+                echo "The Hashing Algorithm is not present in php library";
+            }
+        }
+        public function execute()
+        {
+            $this->raw_salt = rand();
+            $this->salt = hash("md5", $this->raw_salt);
+            $joined = $this->init_str . $this->salt;
+            $this->result = hash($this->algo, $this->init_str);
+        }
+        
+        public function getHash()
+        {
+            if(isset($this->result)) return $this->result;
+        }
+        
+        public function getSalt()
+        {
+            if(isset($this->salt)) return $this->salt;
+        }
+        
+        public function getRawSalt()
+        {
+            if(isset($this->raw_salt)) return $this->raw_salt;
+        }
     }
-    else
-    {
-      $this->err_msg = "Oppsie! The Hashing You Provided Does Not Exist!!!";
-    }
-  }
-
-  public function getHash()
-  {
-    return $this->res_hash;
-  }
-
-  public function getSalt()
-  {
-    return $this->salt;
-  }
-
-  public function debug()
-  {
-    return $this->err_msg;
-  }
-}
 ?>
