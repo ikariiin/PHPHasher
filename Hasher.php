@@ -48,5 +48,10 @@
         {
             if(isset($this->raw_salt)) return $this->raw_salt;
         }
+
+	public function getAvailableAlgos()
+	{
+		return hash_algos();
+	}
     }
 ?>
