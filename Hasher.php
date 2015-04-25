@@ -21,10 +21,7 @@
         }
         public function errors()
         {
-            if($this->errors['in_arr'] == false)
-            {
-                echo "The Hashing Algorithm is not present in php library";
-            }
+            return $errors;
         }
         public function execute()
         {
