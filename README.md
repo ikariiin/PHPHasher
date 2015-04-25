@@ -31,9 +31,9 @@ This is a basic hasher class which return you a salted hash of your specified al
   echo $salt;
  ```
  
- <h3> If you find something is wrong like anything isn't coming along with the `$hasher->getSalt() or $hasher->getHash()` </h3>
+ <h3> If you find something wrong!` </h3>
  
- <blockqoute> You can use the `$hasher->debug()` method </blockquote>
+ <blockqoute> You can use the `$hasher->errors()` method </blockquote>
  
 ```
   $errors = $hasher->errors();
