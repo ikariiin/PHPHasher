@@ -23,7 +23,7 @@
         {
             return $errors;
         }
-        public function execute()
+        private function execute()
         {
             $this->raw_salt = rand();
             $this->salt = hash("md5", $this->raw_salt);
