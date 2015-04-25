@@ -36,6 +36,7 @@
         
         public function getHash()
         {
+            $this->execute();
             if(isset($this->result)) return $this->result;
         }
         
